@@ -14,7 +14,7 @@ function TodoApp() {
 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get('http://localhost:5050/')
+      const response = await axios.get('/api/')
       setTodos(response.data.items)
     } catch (error) {
       console.error(error)
@@ -23,7 +23,7 @@ function TodoApp() {
 
   const addTodo = async () => {
     try {
-      await axios.post('http://localhost:5050/addTodo', {
+      await axios.post('/api/addTodo', {
         todoItem: todoItem,
       })
       setTodoItem('')
@@ -36,7 +36,7 @@ function TodoApp() {
 
   const deleteTodo = async (todoItem) => {
     try {
-      await axios.delete('http://localhost:5050/deleteItem', {
+      await axios.delete('/api/deleteItem', {
         data: { todoItem },
       })
       fetchTodos()

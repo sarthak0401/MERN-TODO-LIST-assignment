@@ -21,16 +21,21 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true }).then(
 // app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.use(cors())
+
+app.use(cors());
+
+// app.use(cors());
+
+
 // ROutes
-app.get('/', async (request, response) => {
+app.get('/api/', async (request, response) => {
   const todoItems = await db.collection('todos').find().toArray()
   const itemsLeft = await db
     .collection('todos')
     .countDocuments({ completed: false })
   response.json({ items: todoItems, left: itemsLeft })
 })
-app.post('/addTodo', async (request, response) => {
+app.post('/api/addTodo', async (request, response) => {
   try {
     const items = await db.collection('todos').insertOne({
       thing: request.body.todoItem,
@@ -43,7 +48,7 @@ app.post('/addTodo', async (request, response) => {
     response.status(500).json({ error: 'An error occurred' })
   }
 })
-app.delete('/deleteItem', async (request, response) => {
+app.delete('/api/deleteItem', async (request, response) => {
   try {
     const item = await db
       .collection('todos')

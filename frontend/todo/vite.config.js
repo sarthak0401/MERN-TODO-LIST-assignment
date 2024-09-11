@@ -7,5 +7,6 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',  // This binds the server to all network interfaces
     port: 5173,       // Ensure the port matches the one exposed in Docker
-  },
-})
+  }
+}
+)

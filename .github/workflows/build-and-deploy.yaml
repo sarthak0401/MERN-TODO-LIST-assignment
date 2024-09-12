@@ -42,7 +42,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
           instance-ids: ${{ secrets.AWS_INSTANCE_ID }}
-          working-directory: /home/ubuntu
+          working-directory: /home/ubuntu/mern-app-cicd
           command: |
             sudo docker compose stop
             sudo docker compose rm -f

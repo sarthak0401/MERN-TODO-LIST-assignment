@@ -51,7 +51,7 @@ function TodoApp() {
 
   return (
     <div className='p-5'>
-      <h1 className='text-3xl mb-5 text-[#3c5215]'>Todo App</h1>
+      <h1 className='text-3xl mb-5 text-[#3c5215]'>Mern Todo App name change </h1>
       <div className='flex space-x-5 mb-5'>
         <input
           type='text'
